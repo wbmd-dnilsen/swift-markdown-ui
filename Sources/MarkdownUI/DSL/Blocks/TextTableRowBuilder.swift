@@ -5,28 +5,29 @@ import Foundation
 /// You don't call the methods of the result builder directly. Instead, MarkdownUI annotates the `rows`
 /// parameter of the ``TextTable/init(columns:rows:)`` initializer with the
 /// `@TextTableRowBuilder` attribute, implicitly calling this builder for you.
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 @resultBuilder public enum TextTableRowBuilder<Value> {
-  public static func buildBlock(_ components: [TextTableRow<Value>]...) -> [TextTableRow<Value>] {
-    components.flatMap { $0 }
-  }
-
-  public static func buildExpression(_ expression: TextTableRow<Value>) -> [TextTableRow<Value>] {
-    [expression]
-  }
-
-  public static func buildArray(_ components: [[TextTableRow<Value>]]) -> [TextTableRow<Value>] {
-    components.flatMap { $0 }
-  }
-
-  public static func buildOptional(_ component: [TextTableRow<Value>]?) -> [TextTableRow<Value>] {
-    component ?? []
-  }
-
-  public static func buildEither(first component: [TextTableRow<Value>]) -> [TextTableRow<Value>] {
-    component
-  }
-
-  public static func buildEither(second component: [TextTableRow<Value>]) -> [TextTableRow<Value>] {
-    component
-  }
+    public static func buildBlock(_ components: [TextTableRow<Value>]...) -> [TextTableRow<Value>] {
+        components.flatMap { $0 }
+    }
+    
+    public static func buildExpression(_ expression: TextTableRow<Value>) -> [TextTableRow<Value>] {
+        [expression]
+    }
+    
+    public static func buildArray(_ components: [[TextTableRow<Value>]]) -> [TextTableRow<Value>] {
+        components.flatMap { $0 }
+    }
+    
+    public static func buildOptional(_ component: [TextTableRow<Value>]?) -> [TextTableRow<Value>] {
+        component ?? []
+    }
+    
+    public static func buildEither(first component: [TextTableRow<Value>]) -> [TextTableRow<Value>] {
+        component
+    }
+    
+    public static func buildEither(second component: [TextTableRow<Value>]) -> [TextTableRow<Value>] {
+        component
+    }
 }

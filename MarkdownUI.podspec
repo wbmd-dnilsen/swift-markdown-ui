@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MarkdownUI"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Swift compatible framework for swift-markdown-ui"
 
   s.description  = <<-DESC
@@ -13,10 +13,9 @@ Pod::Spec.new do |s|
   s.author       = { 'ghost' => 'czios1501@gmail.com' }
   s.source       = { :git => "https://github.com/ghostcrying/swift-markdown-ui.git", :tag => "#{s.version}" }
     
-  s.ios.deployment_target = "15.0"
-  s.osx.deployment_target = "12.00"
-  s.tvos.deployment_target = "15.0"
-  s.watchos.deployment_target = "8.0"
+  s.ios.deployment_target = "11.0"
+  s.osx.deployment_target = "10.15"
+  s.tvos.deployment_target = "11.0"
 
   s.source_files = "Sources/*.h", "Sources/MarkdownUI/**/*.swift"
   s.public_header_files = "Sources/*.h"

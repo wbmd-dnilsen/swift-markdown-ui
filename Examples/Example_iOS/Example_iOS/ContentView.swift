@@ -12,9 +12,10 @@ struct ContentView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Markdown(ChatMarkText0)
-                    .markdownTheme(.gitHub)
-                    .padding()
+                if #available(iOS 15.0, *) {
+                    Markdown(ChatMarkText0).markdownTheme(.gitHub)
+                        .padding()
+                }
             }
         }
     }

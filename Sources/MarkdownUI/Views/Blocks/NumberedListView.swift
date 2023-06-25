@@ -1,5 +1,8 @@
+#if canImport(SwiftUI)
 import SwiftUI
+#endif
 
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 struct NumberedListView: View {
   @Environment(\.theme.list) private var list
   @Environment(\.theme.numberedListMarker) private var numberedListMarker

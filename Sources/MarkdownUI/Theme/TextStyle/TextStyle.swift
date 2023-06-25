@@ -1,4 +1,6 @@
+#if canImport(SwiftUI)
 import SwiftUI
+#endif
 
 /// The appearance of a text inline in a Markdown view.
 ///
@@ -57,6 +59,7 @@ import SwiftUI
 /// ```
 ///
 /// ![](CustomBlockquote)
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public protocol TextStyle {
-  func _collectAttributes(in attributes: inout AttributeContainer)
+    func _collectAttributes(in attributes: inout AttributeContainer)
 }

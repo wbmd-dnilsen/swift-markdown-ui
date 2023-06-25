@@ -5,32 +5,33 @@ import Foundation
 /// You don't call the methods of the result builder directly. Instead, MarkdownUI annotates the `content` parameter of the
 /// ``Paragraph``, ``Heading``, and ``TextTableColumn`` initializers with the `@InlineContentBuider` attribute,
 /// implicitly calling this builder for you.
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 @resultBuilder public enum InlineContentBuilder {
-  public static func buildBlock(_ components: InlineContentProtocol...) -> InlineContent {
-    .init(components)
-  }
-
-  public static func buildExpression(_ expression: InlineContentProtocol) -> InlineContent {
-    expression._inlineContent
-  }
-
-  public static func buildExpression(_ expression: String) -> InlineContent {
-    .init(expression)
-  }
-
-  public static func buildArray(_ components: [InlineContentProtocol]) -> InlineContent {
-    .init(components)
-  }
-
-  public static func buildOptional(_ component: InlineContentProtocol?) -> InlineContent {
-    component?._inlineContent ?? .init()
-  }
-
-  public static func buildEither(first component: InlineContentProtocol) -> InlineContent {
-    component._inlineContent
-  }
-
-  public static func buildEither(second component: InlineContentProtocol) -> InlineContent {
-    component._inlineContent
-  }
+    public static func buildBlock(_ components: InlineContentProtocol...) -> InlineContent {
+        .init(components)
+    }
+    
+    public static func buildExpression(_ expression: InlineContentProtocol) -> InlineContent {
+        expression._inlineContent
+    }
+    
+    public static func buildExpression(_ expression: String) -> InlineContent {
+        .init(expression)
+    }
+    
+    public static func buildArray(_ components: [InlineContentProtocol]) -> InlineContent {
+        .init(components)
+    }
+    
+    public static func buildOptional(_ component: InlineContentProtocol?) -> InlineContent {
+        component?._inlineContent ?? .init()
+    }
+    
+    public static func buildEither(first component: InlineContentProtocol) -> InlineContent {
+        component._inlineContent
+    }
+    
+    public static func buildEither(second component: InlineContentProtocol) -> InlineContent {
+        component._inlineContent
+    }
 }

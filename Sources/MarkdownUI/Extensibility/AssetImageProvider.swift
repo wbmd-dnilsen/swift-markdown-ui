@@ -1,4 +1,6 @@
+#if canImport(SwiftUI)
 import SwiftUI
+#endif
 import Foundation
 
 #if os(macOS)
@@ -19,6 +21,7 @@ import UIKit
 /// }
 /// .markdownImageProvider(.asset)
 /// ```
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public struct AssetImageProvider: ImageProvider {
     private let name: (URL) -> String
     private let bundle: Bundle?
@@ -57,6 +60,7 @@ public struct AssetImageProvider: ImageProvider {
     }
 }
 
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 extension ImageProvider where Self == AssetImageProvider {
     /// An image provider that loads images from resources located in an app or a module.
     ///

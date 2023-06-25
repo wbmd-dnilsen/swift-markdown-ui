@@ -1,16 +1,19 @@
+#if canImport(SwiftUI)
 import SwiftUI
+#endif
 
 /// A type that loads images that are displayed within a line of text.
 ///
 /// To configure the current inline image provider for a view hierarchy,
 /// use the `markdownInlineImageProvider(_:)` modifier.
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public protocol InlineImageProvider {
-  /// Returns an image for the given URL.
-  ///
-  /// ``Markdown`` views call this method to load images within a line of text.
-  ///
-  /// - Parameters:
-  ///   - url: The URL of the image to display.
-  ///   - label: The accessibility label associated with the image.
-  func image(with url: URL, label: String) async throws -> Image
+    /// Returns an image for the given URL.
+    ///
+    /// ``Markdown`` views call this method to load images within a line of text.
+    ///
+    /// - Parameters:
+    ///   - url: The URL of the image to display.
+    ///   - label: The accessibility label associated with the image.
+    func image(with url: URL, label: String) async throws -> Image
 }

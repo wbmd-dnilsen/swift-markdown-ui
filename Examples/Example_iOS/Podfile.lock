@@ -1,6 +1,6 @@
 PODS:
   - cmark_gfm (0.0.4)
-  - MarkdownUI (0.0.1):
+  - MarkdownUI (0.0.3):
     - cmark_gfm
 
 DEPENDENCIES:
@@ -21,7 +21,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   cmark_gfm: 8224a60454ee59361bc2c20161a5799364fe4ff8
-  MarkdownUI: 10b5c0394393ca1ae8f82fc0a5ed46a3a899c9d3
+  MarkdownUI: 3e66e1b8b2e2c7b8f7cd19cad66870414e183e8a
 
 PODFILE CHECKSUM: 8cc0d69127b794a92c15621c97245a45c8d4a562
 

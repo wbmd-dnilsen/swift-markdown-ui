@@ -6,32 +6,33 @@ import Foundation
 /// you declare in any closure with the `@TaskListContentBuilder` attribute. In particular, you rely on
 /// this behavior when you declare the `content` inside a list element initializer such as
 /// ``TaskList/init(tight:items:)``.
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 @resultBuilder public enum TaskListContentBuilder {
-  public static func buildBlock(_ components: [TaskListItem]...) -> [TaskListItem] {
-    components.flatMap { $0 }
-  }
-
-  public static func buildExpression(_ expression: String) -> [TaskListItem] {
-    [.init(expression)]
-  }
-
-  public static func buildExpression(_ expression: TaskListItem) -> [TaskListItem] {
-    [expression]
-  }
-
-  public static func buildArray(_ components: [[TaskListItem]]) -> [TaskListItem] {
-    components.flatMap { $0 }
-  }
-
-  public static func buildOptional(_ component: [TaskListItem]?) -> [TaskListItem] {
-    component ?? []
-  }
-
-  public static func buildEither(first component: [TaskListItem]) -> [TaskListItem] {
-    component
-  }
-
-  public static func buildEither(second component: [TaskListItem]) -> [TaskListItem] {
-    component
-  }
+    public static func buildBlock(_ components: [TaskListItem]...) -> [TaskListItem] {
+        components.flatMap { $0 }
+    }
+    
+    public static func buildExpression(_ expression: String) -> [TaskListItem] {
+        [.init(expression)]
+    }
+    
+    public static func buildExpression(_ expression: TaskListItem) -> [TaskListItem] {
+        [expression]
+    }
+    
+    public static func buildArray(_ components: [[TaskListItem]]) -> [TaskListItem] {
+        components.flatMap { $0 }
+    }
+    
+    public static func buildOptional(_ component: [TaskListItem]?) -> [TaskListItem] {
+        component ?? []
+    }
+    
+    public static func buildEither(first component: [TaskListItem]) -> [TaskListItem] {
+        component
+    }
+    
+    public static func buildEither(second component: [TaskListItem]) -> [TaskListItem] {
+        component
+    }
 }

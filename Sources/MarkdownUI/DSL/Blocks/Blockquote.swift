@@ -19,16 +19,17 @@ import Foundation
 /// ```
 ///
 /// ![](BlockquoteContent)
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public struct Blockquote: MarkdownContentProtocol {
-  public var _markdownContent: MarkdownContent {
-    .init(blocks: [.blockquote(children: content.blocks)])
-  }
-
-  private let content: MarkdownContent
-
-  /// Creates a blockquote element that includes the specified Markdown content.
-  /// - Parameter content: A Markdown content builder that returns the content included in the blockquote.
-  public init(@MarkdownContentBuilder content: () -> MarkdownContent) {
-    self.content = content()
-  }
+    public var _markdownContent: MarkdownContent {
+        .init(blocks: [.blockquote(children: content.blocks)])
+    }
+    
+    private let content: MarkdownContent
+    
+    /// Creates a blockquote element that includes the specified Markdown content.
+    /// - Parameter content: A Markdown content builder that returns the content included in the blockquote.
+    public init(@MarkdownContentBuilder content: () -> MarkdownContent) {
+        self.content = content()
+    }
 }

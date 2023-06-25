@@ -22,20 +22,21 @@ import Foundation
 ///   }
 /// }
 /// ```
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public struct TaskListItem: Hashable {
-  let isCompleted: Bool
-  let children: [BlockNode]
-
-  init(isCompleted: Bool, children: [BlockNode]) {
-    self.isCompleted = isCompleted
-    self.children = children
-  }
-
-  init(_ text: String) {
-    self.init(isCompleted: false, children: [.paragraph(content: [.text(text)])])
-  }
-
-  public init(isCompleted: Bool = false, @MarkdownContentBuilder content: () -> MarkdownContent) {
-    self.init(isCompleted: isCompleted, children: content().blocks)
-  }
+    let isCompleted: Bool
+    let children: [BlockNode]
+    
+    init(isCompleted: Bool, children: [BlockNode]) {
+        self.isCompleted = isCompleted
+        self.children = children
+    }
+    
+    init(_ text: String) {
+        self.init(isCompleted: false, children: [.paragraph(content: [.text(text)])])
+    }
+    
+    public init(isCompleted: Bool = false, @MarkdownContentBuilder content: () -> MarkdownContent) {
+        self.init(isCompleted: isCompleted, children: content().blocks)
+    }
 }

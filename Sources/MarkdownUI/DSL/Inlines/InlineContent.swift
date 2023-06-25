@@ -1,8 +1,9 @@
 import Foundation
 
 /// A protocol that represents any Markdown inline content.
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public protocol InlineContentProtocol {
-  var _inlineContent: InlineContent { get }
+    var _inlineContent: InlineContent { get }
 }
 
 /// A Markdown inline content value.
@@ -32,19 +33,20 @@ public protocol InlineContentProtocol {
 ///   }
 /// }
 /// ```
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public struct InlineContent: Equatable, InlineContentProtocol {
-  public var _inlineContent: InlineContent { self }
-  let inlines: [InlineNode]
-
-  init(inlines: [InlineNode] = []) {
-    self.inlines = inlines
-  }
-
-  init(_ components: [InlineContentProtocol]) {
-    self.init(inlines: components.map(\._inlineContent).flatMap(\.inlines))
-  }
-
-  init(_ text: String) {
-    self.init(inlines: [.text(text)])
-  }
+    public var _inlineContent: InlineContent { self }
+    let inlines: [InlineNode]
+    
+    init(inlines: [InlineNode] = []) {
+        self.inlines = inlines
+    }
+    
+    init(_ components: [InlineContentProtocol]) {
+        self.init(inlines: components.map(\._inlineContent).flatMap(\.inlines))
+    }
+    
+    init(_ text: String) {
+        self.init(inlines: [.text(text)])
+    }
 }

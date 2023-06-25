@@ -1,4 +1,6 @@
+#if canImport(SwiftUI)
 import SwiftUI
+#endif
 
 /// A type that applies a custom appearance to specific types of blocks in a Markdown view.
 ///
@@ -37,26 +39,28 @@ import SwiftUI
 /// ```
 ///
 /// ![](CustomBlockquote)
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 public struct BlockStyle<Configuration> {
-  private let body: (Configuration) -> AnyView
-
-  /// Creates a block style that customizes a block by applying the given body.
-  /// - Parameter body: A view builder that returns the customized block.
-  public init<Body: View>(@ViewBuilder body: @escaping (_ configuration: Configuration) -> Body) {
-    self.body = { AnyView(body($0)) }
-  }
-
-  func makeBody(configuration: Configuration) -> AnyView {
-    self.body(configuration)
-  }
+    private let body: (Configuration) -> AnyView
+    
+    /// Creates a block style that customizes a block by applying the given body.
+    /// - Parameter body: A view builder that returns the customized block.
+    public init<Body: View>(@ViewBuilder body: @escaping (_ configuration: Configuration) -> Body) {
+        self.body = { AnyView(body($0)) }
+    }
+    
+    func makeBody(configuration: Configuration) -> AnyView {
+        self.body(configuration)
+    }
 }
 
+@available(iOS 15.0, macOS 12.0, tvOS 15.0, *)
 extension BlockStyle where Configuration == Void {
-  /// Creates a block style for a block with no content, like a thematic break.
-  /// - Parameter body: A view builder that returns the customized block.
-  public init<Body: View>(@ViewBuilder body: @escaping () -> Body) {
-    self.init { _ in
-      body()
+    /// Creates a block style for a block with no content, like a thematic break.
+    /// - Parameter body: A view builder that returns the customized block.
+    public init<Body: View>(@ViewBuilder body: @escaping () -> Body) {
+        self.init { _ in
+            body()
+        }
     }
-  }
 }
