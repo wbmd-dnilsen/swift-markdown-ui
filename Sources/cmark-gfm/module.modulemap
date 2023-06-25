@@ -1,0 +1,4 @@
+module cmark_gfm {
+    header "include/cmark_gfm.h"
+    export *
+}

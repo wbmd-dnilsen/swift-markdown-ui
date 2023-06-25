@@ -13,9 +13,9 @@ struct ThemeOption: Hashable {
     hasher.combine(self.name)
   }
 
-  static let basic = ThemeOption(name: "Basic", theme: .basic)
-  static let docC = ThemeOption(name: "DocC", theme: .docC)
-  static let gitHub = ThemeOption(name: "GitHub", theme: .gitHub)
+  static let basic  = ThemeOption(name  : "Basic", theme  : .basic)
+  static let docC   = ThemeOption(name : "DocC", theme : .docC)
+  static let gitHub = ThemeOption(name : "GitHub", theme : .gitHub)
 }
 
 struct DemoView<Content: View>: View {

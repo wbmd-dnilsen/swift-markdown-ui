@@ -282,6 +282,21 @@ Include `"MarkdownUI"` as a dependency for your executable target:
 
 Finally, add `import MarkdownUI` to your source code.
 
+#### Cocoapods
+
+```
+pod 'cmark_gfm', :git => 'https://github.com/ghostcrying/swift-cmark.git', :tag => '0.0.4'
+pod 'MarkdownUI', :git => 'https://github.com/ghostcrying/swift-markdown-ui.git', :tag => '0.0.1'
+```
+
+#### Carthage
+
+```
+git "https://github.com/gonzalezreal/swift-markdown-ui.git" "main"
+```
+
+
+
 ### Adding MarkdownUI to an Xcode project
 
 1. From the **File** menu, select **Add Packages…**
