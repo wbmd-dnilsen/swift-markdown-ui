@@ -47,9 +47,9 @@ public struct AssetImageProvider: ImageProvider {
     private func image(url: URL) -> PlatformImage? {
 #if os(macOS)
         if let bundle, bundle != .main {
-            return bundle.image(forResource: self.name(url))
+            return bundle.image(forResource: NSImage.Name(self.name(url)))
         } else {
-            return NSImage(named: self.name(url))
+            return NSImage(named: NSImage.Name(self.name(url)))
         }
 #elseif os(iOS) || os(tvOS) || os(watchOS)
         return UIImage(named: self.name(url), in: self.bundle, with: nil)
@@ -65,3 +65,4 @@ extension ImageProvider where Self == AssetImageProvider {
         .init()
     }
 }
+
